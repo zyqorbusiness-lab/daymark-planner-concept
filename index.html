@@ -32,7 +32,27 @@ button:active,a:active,summary:active{transform:scale(.96);opacity:.8}
 .dial-hand{transform-origin:30px 30px;animation:dialSpin 18s linear infinite}
 @keyframes dialSpin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.dial-hand{animation:none}.burst-dot{display:none}}
-</style></head><body><div class="wrap"><header class="nav"><a class="brand" href="#top">daymark.</a><span>A ZYQOR Studio concept</span></header><main id="top"><section class="hero"><div><span class="kicker">PERSONAL PLANNER / FRONT-END DEMO</span><h1>Give the week<br>some <em>shape.</em></h1><p>A quiet place to plan the next seven days. Put one task where it belongs, then make room for the rest.</p></div><aside><svg class="week-dial" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="21" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="30.0" y1="6.0" x2="30.0" y2="2.5"/><line x1="48.8" y1="15.0" x2="51.5" y2="12.9"/><line x1="53.4" y1="35.3" x2="56.8" y2="36.1"/><line x1="40.4" y1="51.6" x2="41.9" y2="54.8"/><line x1="19.6" y1="51.6" x2="18.1" y2="54.8"/><line x1="6.6" y1="35.3" x2="3.2" y2="36.1"/><line x1="11.2" y1="15.0" x2="8.5" y2="12.9"/></g><g class="dial-hand"><circle cx="30" cy="9" r="3.2" fill="currentColor"/></g></svg>Fictional product concept. Your plan stays in this browser. No account or cloud sync.</aside></section><section class="planner" aria-labelledby="plan-title"><div class="toolbar"><div><span class="kicker">01 / THIS WEEK</span><h2 id="plan-title">Your board</h2></div><button type="button" id="clear-done">Clear finished</button></div><form class="add" id="add-form"><input id="task-name" maxlength="100" required placeholder="What needs doing?" aria-label="Task name"><select id="task-day" aria-label="Choose day"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select><button type="submit">Add task</button></form><p id="save-status" class="save-status" role="status" aria-live="polite">Loading your saved board…</p><div class="days" id="days" aria-live="polite"></div></section><div class="note"><p>Tip: plan a small first step. The board saves only in this browser on this device; clearing site data removes it.</p><span id="count">0 tasks</span></div></main><footer class="footer"><span>Daymark is a fictional portfolio concept by ZYQOR Studio.</span><div><a href="mailto:zyqorbusiness@gmail.com">Contact the designer</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div></footer><div class="policies"><details id="privacy"><summary>Privacy</summary><p>Tasks are stored in your browser's local storage, not transmitted to a server by this demo. Clearing browser data deletes them. The email link opens your mail app.</p></details><details id="terms"><summary>Terms</summary><p>This is a portfolio concept, not a production planning service. There is no account, backup or cross-device sync. Please don't store sensitive information here.</p></details></div></div><script>
+</style><style>
+/* Premium boot loader */
+.boot{position:fixed;inset:0;z-index:9999;background:#ebe7df;color:#292d29;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:transform .72s cubic-bezier(.76,0,.24,1)}
+.boot-hide{transform:translateY(-101%)}
+.boot-mark{font:normal 44px Georgia,serif;letter-spacing:-.065em;margin:0}
+.boot-mark em{color:#3d594e;font-style:normal}
+.boot-kick{font:bold 10px Arial,Helvetica,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#3d594e}
+.boot-bar{width:min(200px,56vw);height:2px;background:rgba(41,45,41,.15);overflow:hidden;border-radius:2px}
+.boot-bar i{display:block;height:100%;width:0;background:#3d594e;animation:bootBar 1.05s cubic-bezier(.2,.7,.3,1) forwards}
+.boot-hide .boot-bar i{animation:none;width:100%;transition:width .16s ease}
+@keyframes bootBar{to{width:84%}}
+@media(prefers-reduced-motion:reduce){.boot{transition:none}.boot-bar i{animation:none;width:100%}}
+
+/* Press feedback on every control */
+a,button,summary,select,[role="button"]{transition:transform .14s ease}
+a:active,button:active,summary:active,select:active,[role="button"]:active{transform:scale(.95)}
+@media(prefers-reduced-motion:reduce){a,button,summary,select,[role="button"]{transition:none}a:active,button:active,summary:active,select:active,[role="button"]:active{transform:none}}
+/* Floating week dial */
+@media(prefers-reduced-motion:no-preference){.week-dial{animation:dialFloat 6.5s ease-in-out infinite}}
+@keyframes dialFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+</style></head><body><div class="boot" id="boot" role="status" aria-label="Loading"><p class="boot-kick">PERSONAL PLANNER / FRONT-END DEMO</p><p class="boot-mark">daymark.</p><div class="boot-bar"><i></i></div></div><noscript><style>.boot{display:none!important}</style></noscript><div class="wrap"><header class="nav"><a class="brand" href="#top">daymark.</a><span>A ZYQOR Studio concept</span></header><main id="top"><section class="hero"><div><span class="kicker">PERSONAL PLANNER / FRONT-END DEMO</span><h1>Give the week<br>some <em>shape.</em></h1><p>A quiet place to plan the next seven days. Put one task where it belongs, then make room for the rest.</p></div><aside><svg class="week-dial" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="21" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="30.0" y1="6.0" x2="30.0" y2="2.5"/><line x1="48.8" y1="15.0" x2="51.5" y2="12.9"/><line x1="53.4" y1="35.3" x2="56.8" y2="36.1"/><line x1="40.4" y1="51.6" x2="41.9" y2="54.8"/><line x1="19.6" y1="51.6" x2="18.1" y2="54.8"/><line x1="6.6" y1="35.3" x2="3.2" y2="36.1"/><line x1="11.2" y1="15.0" x2="8.5" y2="12.9"/></g><g class="dial-hand"><circle cx="30" cy="9" r="3.2" fill="currentColor"/></g></svg>Fictional product concept. Your plan stays in this browser. No account or cloud sync.</aside></section><section class="planner" aria-labelledby="plan-title"><div class="toolbar"><div><span class="kicker">01 / THIS WEEK</span><h2 id="plan-title">Your board</h2></div><button type="button" id="clear-done">Clear finished</button></div><form class="add" id="add-form"><input id="task-name" maxlength="100" required placeholder="What needs doing?" aria-label="Task name"><select id="task-day" aria-label="Choose day"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select><button type="submit">Add task</button></form><p id="save-status" class="save-status" role="status" aria-live="polite">Loading your saved board…</p><div class="days" id="days" aria-live="polite"></div></section><div class="note"><p>Tip: plan a small first step. The board saves only in this browser on this device; clearing site data removes it.</p><span id="count">0 tasks</span></div></main><footer class="footer"><span>Daymark is a fictional portfolio concept by ZYQOR Studio.</span><div><a href="mailto:zyqorbusiness@gmail.com">Contact the designer</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div></footer><div class="policies"><details id="privacy"><summary>Privacy</summary><p>Tasks are stored in your browser's local storage, not transmitted to a server by this demo. Clearing browser data deletes them. The email link opens your mail app.</p></details><details id="terms"><summary>Terms</summary><p>This is a portfolio concept, not a production planning service. There is no account, backup or cross-device sync. Please don't store sensitive information here.</p></details></div></div><script>
 const names=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],key='daymark-demo-v1';
 let tasks=[];try{tasks=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(tasks))tasks=[]}catch{tasks=[]}
 let animateBoard=true,newTaskId=null;
@@ -103,5 +123,22 @@ if(!reduceMotion&&'IntersectionObserver' in window){
   els.forEach(el=>io.observe(el));
 }
 const openPolicy=()=>{const target=document.getElementById(location.hash.slice(1));if(target?.tagName==='DETAILS')target.open=true};addEventListener('hashchange',openPolicy);openPolicy();
-</script></body></html>
+</script><script>
+/* Boot loader: min 950ms, hard cap 2s, lifts when loaded. */
+(function(){var boot=document.getElementById('boot');if(!boot)return;var __prm=matchMedia('(prefers-reduced-motion: reduce)').matches;var t0=performance.now();var done=false;
+function hide(){if(done)return;done=true;var wait=Math.max(0,950-(performance.now()-t0));
+setTimeout(function(){if(__prm){boot.style.display='none';return}boot.classList.add('boot-hide');setTimeout(function(){boot.style.display='none'},850)},wait)}
+if(document.readyState==='complete'){hide()}else{window.addEventListener('load',hide);setTimeout(hide,2000)}})();
 
+/* Premium click sound: synthesized in Web Audio, no assets. */
+var __ac=null,__lastTick=0;
+function __audio(){if(!__ac){try{__ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return null}}if(__ac&&__ac.state==='suspended'){__ac.resume()}return __ac}
+function __tick(){var c=__audio();if(!c)return;var t=c.currentTime;
+var o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(2100,t);o.frequency.exponentialRampToValueAtTime(680,t+.055);
+g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.05,t+.006);g.gain.exponentialRampToValueAtTime(.0001,t+.085);
+o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.09);
+var o2=c.createOscillator(),g2=c.createGain();o2.type='triangle';o2.frequency.setValueAtTime(330,t);o2.frequency.exponentialRampToValueAtTime(205,t+.07);
+g2.gain.setValueAtTime(.0001,t);g2.gain.exponentialRampToValueAtTime(.04,t+.009);g2.gain.exponentialRampToValueAtTime(.0001,t+.11);
+o2.connect(g2);g2.connect(c.destination);o2.start(t);o2.stop(t+.12)}
+document.addEventListener('pointerdown',function(e){if(typeof e.button==='number'&&e.button!==0)return;var n=performance.now();if(n-__lastTick<60)return;var el=e.target&&e.target.closest?e.target.closest('a,button,summary,[role="button"],input[type="checkbox"],input[type="radio"],select,label'):null;if(!el)return;__lastTick=n;__tick()},{passive:true});
+</script></body></html>
