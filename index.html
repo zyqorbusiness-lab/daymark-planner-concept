@@ -4,10 +4,9 @@
 button,a,summary{-webkit-tap-highlight-color:transparent}button:active,a:active,summary:active{opacity:.65}button:disabled{cursor:default;opacity:.55}.save-status{min-height:1.5em;font-size:13px;color:var(--green);padding:0 0 8px}.hero,.toolbar{animation:arrive .4s ease-out both}@keyframes arrive{from{opacity:.6;transform:translateY(8px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.hero,.toolbar{animation:none}}
 
 /* Rich but restrained motion: staggered entrances, scroll reveals, clear click feedback on every control. */
-.toolbar button,.add button{transition:background-color .18s ease,color .18s ease,transform .12s ease}
+.toolbar button,.add button{transition:background-color .18s ease,color .18s ease,transform .12s ease,background-size .32s cubic-bezier(.2,.7,.3,1)}
 button,a,summary{transition:transform .12s ease}
 button:active,a:active,summary:active{transform:scale(.96);opacity:.8}
-.add button.added{background:var(--ink);border-color:var(--ink)}
 @keyframes taskIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
 .task.new{animation:taskIn .4s cubic-bezier(.2,.7,.3,1) both}
 @keyframes dayIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -22,7 +21,18 @@ button:active,a:active,summary:active{transform:scale(.96);opacity:.8}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
 .reveal.visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.task.new,.day.enter,.save-status.show,.hero>div,.hero>aside{animation:none}button,a,summary,.task input,.task label span{transition:none}}
-</style></head><body><div class="wrap"><header class="nav"><a class="brand" href="#top">daymark.</a><span>A ZYQOR Studio concept</span></header><main id="top"><section class="hero"><div><span class="kicker">PERSONAL PLANNER / FRONT-END DEMO</span><h1>Give the week<br>some <em>shape.</em></h1><p>A quiet place to plan the next seven days. Put one task where it belongs, then make room for the rest.</p></div><aside>Fictional product concept. Your plan stays in this browser. No account or cloud sync.</aside></section><section class="planner" aria-labelledby="plan-title"><div class="toolbar"><div><span class="kicker">01 / THIS WEEK</span><h2 id="plan-title">Your board</h2></div><button type="button" id="clear-done">Clear finished</button></div><form class="add" id="add-form"><input id="task-name" maxlength="100" required placeholder="What needs doing?" aria-label="Task name"><select id="task-day" aria-label="Choose day"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select><button type="submit">Add task</button></form><p id="save-status" class="save-status" role="status" aria-live="polite">Loading your saved board…</p><div class="days" id="days" aria-live="polite"></div></section><div class="note"><p>Tip: plan a small first step. The board saves only in this browser on this device; clearing site data removes it.</p><span id="count">0 tasks</span></div></main><footer class="footer"><span>Daymark is a fictional portfolio concept by ZYQOR Studio.</span><div><a href="mailto:zyqorbusiness@gmail.com">Contact the designer</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div></footer><div class="policies"><details id="privacy"><summary>Privacy</summary><p>Tasks are stored in your browser's local storage, not transmitted to a server by this demo. Clearing browser data deletes them. The email link opens your mail app.</p></details><details id="terms"><summary>Terms</summary><p>This is a portfolio concept, not a production planning service. There is no account, backup or cross-device sync. Please don't store sensitive information here.</p></details></div></div><script>
+
+/* Premium interaction pass: fly-to-day chip, button sweep, week dial loop. */
+.add button{background-image:linear-gradient(var(--ink),var(--ink));background-repeat:no-repeat;background-size:0% 100%}
+.add button.added{background-size:100% 100%}
+.fly-chip{position:fixed;z-index:60;background:var(--green);color:#f4f1e9;font-size:12px;font-weight:bold;letter-spacing:.03em;padding:8px 13px;border:1px solid var(--ink);pointer-events:none;white-space:nowrap;max-width:200px;overflow:hidden;text-overflow:ellipsis}
+.burst-dot{position:fixed;width:5px;height:5px;border-radius:50%;z-index:60;pointer-events:none;animation:burstGo .55s ease-out forwards}
+@keyframes burstGo{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+.week-dial{display:block;width:56px;height:56px;color:var(--green);margin-bottom:14px}
+.dial-hand{transform-origin:30px 30px;animation:dialSpin 18s linear infinite}
+@keyframes dialSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.dial-hand{animation:none}.burst-dot{display:none}}
+</style></head><body><div class="wrap"><header class="nav"><a class="brand" href="#top">daymark.</a><span>A ZYQOR Studio concept</span></header><main id="top"><section class="hero"><div><span class="kicker">PERSONAL PLANNER / FRONT-END DEMO</span><h1>Give the week<br>some <em>shape.</em></h1><p>A quiet place to plan the next seven days. Put one task where it belongs, then make room for the rest.</p></div><aside><svg class="week-dial" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="21" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="30.0" y1="6.0" x2="30.0" y2="2.5"/><line x1="48.8" y1="15.0" x2="51.5" y2="12.9"/><line x1="53.4" y1="35.3" x2="56.8" y2="36.1"/><line x1="40.4" y1="51.6" x2="41.9" y2="54.8"/><line x1="19.6" y1="51.6" x2="18.1" y2="54.8"/><line x1="6.6" y1="35.3" x2="3.2" y2="36.1"/><line x1="11.2" y1="15.0" x2="8.5" y2="12.9"/></g><g class="dial-hand"><circle cx="30" cy="9" r="3.2" fill="currentColor"/></g></svg>Fictional product concept. Your plan stays in this browser. No account or cloud sync.</aside></section><section class="planner" aria-labelledby="plan-title"><div class="toolbar"><div><span class="kicker">01 / THIS WEEK</span><h2 id="plan-title">Your board</h2></div><button type="button" id="clear-done">Clear finished</button></div><form class="add" id="add-form"><input id="task-name" maxlength="100" required placeholder="What needs doing?" aria-label="Task name"><select id="task-day" aria-label="Choose day"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select><button type="submit">Add task</button></form><p id="save-status" class="save-status" role="status" aria-live="polite">Loading your saved board…</p><div class="days" id="days" aria-live="polite"></div></section><div class="note"><p>Tip: plan a small first step. The board saves only in this browser on this device; clearing site data removes it.</p><span id="count">0 tasks</span></div></main><footer class="footer"><span>Daymark is a fictional portfolio concept by ZYQOR Studio.</span><div><a href="mailto:zyqorbusiness@gmail.com">Contact the designer</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div></footer><div class="policies"><details id="privacy"><summary>Privacy</summary><p>Tasks are stored in your browser's local storage, not transmitted to a server by this demo. Clearing browser data deletes them. The email link opens your mail app.</p></details><details id="terms"><summary>Terms</summary><p>This is a portfolio concept, not a production planning service. There is no account, backup or cross-device sync. Please don't store sensitive information here.</p></details></div></div><script>
 const names=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],key='daymark-demo-v1';
 let tasks=[];try{tasks=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(tasks))tasks=[]}catch{tasks=[]}
 let animateBoard=true,newTaskId=null;
@@ -31,6 +41,9 @@ const pulse=el=>{if(reduceMotion||!el||!el.animate)return;el.animate([{transform
 const status=document.querySelector('#save-status');
 const say=msg=>{status.textContent=msg;status.classList.remove('show');void status.offsetWidth;status.classList.add('show')};
 const save=()=>{try{localStorage.setItem(key,JSON.stringify(tasks));say('Saved on this device.')}catch{say('Could not save in this browser. Your changes may be lost on reload.')}};
+const burst=r=>{if(reduceMotion)return;const x=r.left+r.width/2,y=r.top+r.height/2,colors=['#3d594e','#292d29','#a76542'];for(let n=0;n<7;n++){const p=document.createElement('i');p.className='burst-dot';const a=Math.random()*Math.PI*2,dist=22+Math.random()*26;p.style.setProperty('--dx',Math.cos(a)*dist+'px');p.style.setProperty('--dy',Math.sin(a)*dist+'px');p.style.background=colors[n%3];p.style.left=x+'px';p.style.top=y+'px';document.body.appendChild(p);setTimeout(()=>p.remove(),600)}};
+const flyChip=(from,to,label,done)=>{const chip=document.createElement('div');chip.className='fly-chip';chip.textContent=label;const x0=from.left+from.width/2,y0=from.top+from.height/2,x1=to.left+to.width/2,y1=to.top+54;chip.style.left=x0+'px';chip.style.top=y0+'px';document.body.appendChild(chip);const cx=(x0+x1)/2,cy=Math.min(y0,y1)-70,t0=performance.now(),dur=620;const anim=t=>{const k=Math.min((t-t0)/dur,1),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2,m=1-e;chip.style.transform=`translate(-50%,-50%) translate(${2*m*e*(cx-x0)+e*e*(x1-x0)}px,${2*m*e*(cy-y0)+e*e*(y1-y0)}px) scale(${1-.5*e})`;chip.style.opacity=k>.78?String(1-(k-.78)/.22):'1';if(k<1)requestAnimationFrame(anim);else{chip.remove();done()}};requestAnimationFrame(anim)};
+const bumpEl=el=>{if(reduceMotion||!el||!el.animate)return;el.animate([{transform:'scale(1)'},{transform:'scale(1.03)'},{transform:'scale(1)'}],{duration:300,easing:'ease-out'})};
 const escapeHTML=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function render(){
   document.querySelector('#days').innerHTML=names.map((name,i)=>{
@@ -45,13 +58,20 @@ document.querySelector('#add-form').addEventListener('submit',e=>{
   const field=document.querySelector('#task-name'),text=field.value.trim();if(!text)return;
   const btn=e.target.querySelector('button');
   const id=Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-  tasks.push({id,day:document.querySelector('#task-day').value,text,done:false});
-  save();newTaskId=id;render();
-  pulse(document.querySelector('#count'));
-  const added=document.querySelector(`[data-task="${id}"]`);
-  if(added)added.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'nearest'});
-  if(btn){btn.classList.add('added');btn.textContent='Added';setTimeout(()=>{btn.classList.remove('added');btn.textContent='Add task'},950)}
+  const day=document.querySelector('#task-day').value;
+  const dayCol=document.querySelectorAll('.day')[names.indexOf(day)];
+  const btnRect=btn?btn.getBoundingClientRect():null;
+  tasks.push({id,day,text,done:false});
+  save();
+  if(btn){btn.classList.add('added');btn.textContent='Added';setTimeout(()=>{btn.classList.remove('added');btn.textContent='Add task'},1100)}
   field.value='';field.focus();
+  const land=()=>{newTaskId=id;render();pulse(document.querySelector('#count'));
+    const col=document.querySelectorAll('.day')[names.indexOf(day)];if(col)bumpEl(col);
+    const added=document.querySelector(`[data-task="${id}"]`);
+    if(added)added.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'nearest'})};
+  if(reduceMotion||!btnRect||!dayCol){land();return}
+  burst(btnRect);
+  flyChip(btnRect,dayCol.getBoundingClientRect(),text,land);
 });
 document.querySelector('#days').addEventListener('change',e=>{
   let id=e.target.dataset.check;if(!id)return;
