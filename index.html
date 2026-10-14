@@ -205,5 +205,842 @@ var __ac=null,__lastTick=0;
 function __audio(){if(!__ac){try{__ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return null}}if(__ac&&__ac.state==='suspended'){__ac.resume()}return __ac}
 function __tick(){var a=window.__sfxA;if(!a){a=window.__sfxA=new Audio('data:audio/wav;base64,UklGRkIYAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YR4YAADN+8n3ugNv9oYB9/1f9wkC7/dIAbP5qvpuAo8L2fx0/3oIpA9ZCCIFlREq/zYQUwUCAwcDOwdxEVEFFg0QDsMIqwseAnwBggNpCw4GSwN1B4UEXQGgCbcHzv9vBaoEoApGCA4BZwxE/ukC+AfT/YACsfqcAyAENQDXA3r6av8+/YL8U/qm//oAJvrL/DX0Av3m+xcA7fyQ9Jn0wfZP7ATw7enw5tfjlupH4Mrf2N9V5HbZLN3j3avh5eCb4Q3bE93c3Ezjc+SX2yDc9twz3T7gx+Hc3gHds+LX4wXom+4H79Dwv/V1+n34NwU/CDgNQxDSD/4S4RIpGqYWMBioGiEbch1wG4Ubah2UHYwgXh6CJh0lACKqIxslriXcI6EpPSoMJeEjDB8xHdAcwhmIG9kTURD4FLEPDgt+DJYHagohDQUMvwq6B44IOgdTC3QJrQr7BmAFJgj2B6EFygNSAlQAuftc/F36mPcS90n4A/iT+iT8HPnf++H7K/sA9xv1wPPh8e/vB/Ai707s3Odg5uXkHN9p4FDgnt7H3RPckNrh3RPc/d6B4GreJN9j4uPhxd8H4JTggeSV5EXiPOYS6Brokuie61nsuu749fv3//pMANABGwc5CssKuw1TEDISRhVkFRwX3BZ/Gu8Yzhm9GmscMhujHdMcrR1oHlodeR8SH78egiEcH40ffB+wHWgbRRpuGCwWDBT0EfcPJQ6NDDgLKwpmCeQIngiGCI4IpQi7CL8IpAhgCOsHQgdoBmIFOAT4Aq4BaQA4/yT+Of18/O/7kftb+0P7PPs3+yX79fqa+gf6M/kb+L72IfVM80zxMe8N7fHq8egc54HlK+Qg42Ti9OHK4d/hJeKR4hXjo+Mx5LfkL+WX5fLlReaa5v3meuce6PfoEOpw6x7tGe9f8enzqvaU+Zb8n/+ZAnUFIwiVCsIMpA47EIgRkxJlEwsUkBQCFW4V3BVWFt8WeBceGMoYdBkQGpMa7xoaGwgbtRobGjsZGhi+FjQViRPMEQ8QYg7TDG8LQApLCZQIFwjPB7IHtgfMB+YH+AfzB88HhAcNB2sGoQW2BLEDnwKMAYIAjv+4/gb+e/0Y/dn8t/yo/KD8k/xy/DH8xPsl+0z6Ofnt92/2x/QC8y7xWu+X7fLreOo06S7oaefl5p/mkOax5vXmU+e/5y7omuj76FDpmena6RnqXuq16inrxeuS7Jrt4e5q8DXyO/R19tj4V/vh/WgA3AIwBVYHRgn5Cm0Mow2fDmcPBhCFEPAQURGyERoSjhIPE50TNBTMFF4V3xVEFoQWlhZyFhQWexWoFKITcBIdEbUPRg7eDIsLVwpMCXAIxgdPBwYH5gblBvgGEwcsBzYHKQf9Bq0GOQagBegEGAQ3A08CbAGVANb/Mf+s/kn+Bf7c/cb9uv2u/Zf9af0a/aL8/Psl+x365/iK9xD2hPTy8mjx8e+b7m7tcuys6xzrw+qb6p3qwuoB61Drpev660nsjuzJ7PvsKe1a7Zbt5u1T7ufuqu+h8M/xNPPP9Jn2iviY+rb82P7vAPEC0QSIBg4IYAl9CmgLJQy9DDYNmg3yDUgOoQ4CD28P6A9qEPAQdRHvEVYSohLKEsgSlhIzEp8R3RDzD+gOyA2cDHELUgpKCWAInAcBB5EGSQYlBh8GLgZJBmQGeAZ6BmUGMwbiBXIF5QRABIoDygIJAlABpQAPAJT/M//s/r/+pP6V/on+d/5W/h3+xf1H/Z/8zvvV+rn5gPgy99z1hvQ88wny9fAI8Ebvsu5N7hLu/u0L7jDuZu6m7ujuJ+9e743vte/X7/nvIfBW8KLwC/GY8U/yNfNJ9Iz1+faL+Dn6+/vE/Yr/QgHjAmQEvwXwBvQHzgh/CQ4KgQrfCjALfAvICxsMdwzcDEsNwA02DqcOCw9cD5IPpg+UD1oP9g5qDroN6wwGDBQLHgotCUwIgQfTBkcG3wWZBXMFaQVzBYoFpgW+BcsFxwWrBXYFJQW7BDsEqQMMA2sCzAE3AbEAPgDj/53/bP9O/zz/L/8h/wr/4f6f/kD+wP0c/VX8bvts+lb5NPgO9+713fTk8wjzT/K88VDxCfHl8N7w7/AS8T/xcPGh8c7x8/ES8ivyQ/Jd8oDysvL68l/z5vOS9GX1YfaC98T4IvqU+xH9kP4HAG4BvwLxAwIF7gW1BloH4QdNCKUI8AgzCXYJuwkICl4KvAogC4gL7QtMDJwM2Qz8DAEN5AylDEMMwQskC3AKrgnlCB0IXgewBhcGmgU5BfYEzwTBBMcE2wT1BA8FIgUpBR0F/QTGBHgEFwSkAyUDnwIZApgBIQG6AGMAIADw/8//uv+t/6D/j/9x/0L/+/6Z/hn+e/3C/O/7CPsU+hn5IPgw91D2h/Xa9Ev03fOP81/zS/NM817zfPOg88Xz6PMG9B70MfRB9FH0Z/SH9Lf0/fRe9d31fvZA9yL4I/k++mz7qPzp/Sf/WwB+AYsCfQNSBAgFoAUdBoIG1QYaB1cHkQfMBw0IVAijCPgIUgmsCQIKUAqPCroKzgrHCqMKYgoFCo8JBAlqCMgHIweCBu0FaQX5BKEEYgQ7BCoELAQ7BFMEbQSDBJEEkQSABF0EJgTdA4QDHwOyAkEC0wFsAQ8BvwCAAE8ALQAXAAgA/v/w/9v/uP+E/zr/1/5b/sf9HP1e/JL7vfrn+Rb5T/ia9/n2cvYF9rT1ffVe9VP1WfVq9YL1nvW49dD14vXw9fv1BPYR9iT2Q/Zy9rb2E/eL9x/4z/ia+X36cvt2/IH9jv6U/48AegFPAg0DsgM9BLEEDwVcBZwF0wUGBjkGbwarBu0GNQeBB9AHHghmCKQI0wjxCPkI6QjBCIAIKgjAB0gHxQY/BrkFOwXJBGYEFwTcA7UDogOgA6wDwAPYA/ADAgQJBAQE8APLA5YDUgMDA6sCTgLxAZgBRgH+AMMAlAByAFsASwBAADUAJQAMAOf/r/9k/wP/jf4D/mj9v/wM/FX7oPry+U/5vfg/+Nb3hPdJ9yL3D/cL9xL3Ifc090f3Wfdn93L3efd+94T3jveh97/37vcw+Ij49/h/+R760/qZ+238Sv0r/gr/4f+sAGcBEAKkAiIDjQPkAywEZwSZBMYE8gQgBVEFiAXEBQYGSgaOBs8GCgc7B10HbwduB1gHLgfwBqIGRQbdBXAFAgWYBDYE4AOZA2MDPgMqAyUDLAM9A1MDagN9A4oDjQOEA2wDRwMVA9gCkgJHAvkBrQFmASYB7wDDAKIAigB6AG8AZgBaAEgALAACAMr/f/8i/7T+Nv6q/RX9evze+0b7tvoz+r75W/kL+c74o/iK+H74ffiE+JD4nvir+Lb4vfjB+MT4xvjK+NT45vgF+TP5cvnF+Sz6qPo2+9X7gfw3/fL9rv5l/xQAtwBMAdABQgKjAvQCNgNtA5sDwwPqAxAEOQRnBJkE0AQKBUUFgAW2BeUFCgYiBisGIgYJBt8FpgVfBQ4FtwRdBAUEsQNnAygD9gLTAr8CtwK8AskC3ALxAgUDFQMdAxwDDwP2AtMCpAJtAjEC8QGxAXMBOwEKAeEAwQCqAJoAjgCGAHwAbwBbADwAEQDZ/5D/Of/T/mD+5f1i/d78Wvzc+2b7/Pqg+lP6F/rq+cz5uvmz+bX5u/nE+c351Pna+dz53Pnc+dz54Pnq+f35G/pI+oX60vox+6D7H/yq/D792f12/hL/qP80ALcALAGTAesBNQJyAqQCzgLzAhQDNQNXA30DpgPUAwUEOARsBJ0EyQTuBAkFGAUaBQ0F8gTJBJUEVwQSBMkDgAM6A/oCwgKWAnUCYAJXAlkCYwJzAoYCmgKqArYCugK1AqYCjQJrAkECEQLdAagBdAFDARcB8gDUAL0ArQCiAJkAkgCIAHkAYwBDABcA4P+b/0n/7P6G/hn+qf04/cr8YvwC/K77Zfsr+/363frH+rz6uPq6+r/6xPrK+s36zvrN+sv6yfrJ+s361/rr+gn7Nftu+7b7DPxw/N/8WP3X/Vr+3P5c/9b/RwCuAAoBWQGdAdUBAwIqAkoCaAKEAqECwALjAggDMgNdA4oDtQPeAwIEHgQxBDkENQQlBAoE5AO1A38DRQMJA84CmAJoAkACIgIOAgQCAwIKAhcCKAI6AksCWAJgAmACWQJJAjECEQLsAcIBlgFqAUABGgH4AN0AxwC3AKwApACdAJYAiwB7AGMAQgAXAOL/of9W/wL/qP5J/un9iv0v/dn8jfxK/BL85fvD+6z7nfuW+5T7lfuY+5v7nfud+5v7mPuV+5L7kvuX+6L7tvvV+/77NPx2/MT8HP19/eX9Uf6//iv/lP/2/1AAoQDoACUBWAGDAaYBxAHeAfYBDwIpAkUCZAKGAqsC0QL4AhwDPQNZA24DegN9A3YDZQNKAycD/QLPAp8CbwJBAhcC9AHYAcUBuwG4Ab0BxwHVAeYB9gEEAg4CEgIQAgcC9gHfAcMBogF+AVoBNgEVAfcA3gDJALoArwCnAKEAnACUAIgAdwBeAD0AEwDh/6X/Yf8W/8f+dv4k/tT9if1E/Qf90vyn/Ib8bfxc/FL8TfxL/Ez8TfxO/E78S/xI/ET8QPw9/D78RPxQ/GT8gvyp/Nv8F/1d/av9//1Y/rP+Dv9n/7z/CgBRAJAAxwD2AB0BPQFYAW8BhQGZAa8BxgHgAfwBGwI7Al0CfQKbArYCywLaAuEC4ALWAsQCqwKMAmgCQQIZAvMB0AGxAZgBhgF7AXcBegGCAY4BnAGrAbkBxAHLAcwByAG+Aa4BmAF/AWMBRQEnAQoB8ADZAMcAuACuAKYAoACcAJYAjQCBAG8AVgA2AA0A3v+o/2r/Kf/k/p7+Wv4Y/tr9o/1y/Un9Kf0P/f388fzq/Of85fzl/OX85Pzh/N782fzV/NH8z/zR/Nf85Pz4/BX9Ov1o/Z793P0g/mj+tP4A/0v/lP/Y/xYATgB/AKkAzADqAAIBFwEqATwBTgFhAXYBjQGnAcIB3wH7ARYCLwJEAlMCXQJgAlwCUQJAAikCDQLuAc4BrgGQAXYBYAFPAUQBQAFAAUYBUAFcAWoBdwGCAYsBjwGOAYkBfgFvAVsBRQEtARQB/ADlANEAwACzAKgAoQCcAJgAkwCNAIQAdwBkAEwALAAHANv/qv90/zr///7E/ov+Vf4j/vb90P2x/Zj9hf14/W/9av1o/Wb9Zf1j/WH9Xf1Z/VT9T/1M/Uv9Tv1V/WP9d/2S/bX93v0P/kX+gP6+/v3+PP96/7X/6/8cAEcAbQCNAKgAvwDSAOIA8QABARABIgE1AUoBYQF5AZEBqQHAAdMB4wHuAfQB9AHuAeMB0gG+AaYBjAFyAVkBQgEvAR8BFQEQAQ8BEwEbASUBMQE9AUgBUQFXAVkBVwFRAUYBOAEnARMB/wDrANcAxgC3AKoAoQCaAJUAkQCNAIkAggB5AGsAWQBBACMAAADZ/6z/ff9L/xn/5/64/ov+Y/5A/iP+Cv74/er94P3a/db91P3S/dD9zf3K/cb9wf28/bj9tf21/bn9wf3P/eL9/P0b/kH+bP6b/s7+Av83/2z/nv/N//j/HgBAAF0AdQCJAJoAqQC3AMMA0ADfAO4A/wASAScBOwFQAWQBdgGGAZIBmQGcAZoBkwGIAXkBZgFSAT0BKAEVAQQB9gDsAOcA5QDoAO4A9gAAAQsBFgEfASYBKgEqAScBIAEWAQkB+gDpANgAyAC5AKsAoACXAJEAjACIAIUAggB+AHcAbQBfAEwANQAaAPr/1v+v/4b/W/8w/wf/4P68/pz+gf5q/lf+Sf4//jj+M/4w/i7+LP4p/ib+Iv4d/hj+FP4Q/g7+D/4U/h3+Kv49/lX+cv6T/rn+4v4N/zn/Zf+Q/7n/3v8AAB0ANwBNAGAAbwB8AIgAkwCeAKoAtgDEANQA5QD2AAgBGgEqATkBRQFNAVIBUwFPAUgBPQEvAR8BDgH9AO0A3gDSAMkAwwDBAMMAxwDOANcA4ADqAPMA+gD/AAEBAAH8APUA7ADgANMAxgC4AKsAnwCVAI0AhwCCAH8AfAB6AHcAcgBqAGAAUgBBACsAEQD1/9X/sv+P/2r/R/8k/wX/6P7P/rn+p/6a/o/+h/6C/n7+e/55/nf+c/5w/mz+Z/5i/l7+XP5b/l3+Yv5r/nj+iv6g/rr+2P75/hz/QP9l/4n/rP/M/+r/BAAbAC8APwBNAFkAZABtAHYAgACKAJYAogCwAL8AzgDdAOwA+QAFAQ4BFAEWARUBEQEJAf8A8wDmANgAygC+ALMAqwClAKMAowCmAKwAswC7AMQAzADUANkA3ADdANwA1wDRAMgAvgCzAKcAnACSAIkAggB8AHgAdQBzAHEAbgBrAGYAXgBUAEYANgAhAAoA8f/U/7b/mP95/1v/P/8m/w//+/7q/t3+0v7K/sT+wP69/rv+uP61/rL+rv6q/qX+of6e/pz+nP6f/qT+rf66/sr+3/72/hD/Lf9K/2n/h/+l/8H/2//y/wYAGAAnADMAPgBHAE8AVwBfAGcAcQB7AIYAkwCgAK0AugDGANAA2QDfAOMA5ADiAN0A1gDNAMMAtwCsAKIAmACRAIwAiQCJAIsAjwCVAJwApACrALIAuAC8AL4AvgC8ALcAsQCpAKAAlwCOAIUAfgB3AHIAbgBrAGkAZwBlAGMAXwBaAFMASAA7ACsAGQADAO3/1P+7/6D/h/9u/1j/Q/8x/yH/FP8K/wL//P74/vT+8v7v/uz+6f7m/uL+3v7a/tb+1P7T/tP+1/7d/ub+8v4B/xP/KP8+/1f/cP+K/6P/u//R/+X/+P8GABQAHwApADEAOAA/AEUATABUAFwAZQBwAHoAhgCRAJsApQCtALQAuAC6ALoAtwCzAKwApACbAJIAiQCBAHsAdgBzAHIAcwB3AHsAgQCIAI8AlQCbAJ8AogCjAKIAoACbAJYAjwCIAIAAeQByAGwAZwBkAGEAXwBeAFwAWwBYAFUATwBHAD0AMQAiABEA///r/9X/v/+p/5T/gP9t/13/T/9D/zn/Mf8r/yb/I/8g/x7/G/8Y/xX/Ev8O/wr/B/8E/wL/Af8D/wb/DP8V/yH/Lv8//1H/ZP95/47/o/+4/8v/3f/t//v/BgAQABkAIAAmACwAMgA3AD0ARABMAFQAXQBmAHAAeQCCAIoAkACVAJgAmQCXAJQAkACKAIMAfAB0AG4AaABjAGAAXwBgAGIAZgBrAHEAdwB9AIIAhgCKAIwAjACLAIgAhAB/AHkAcwBtAGcAYgBeAFoAWABWAFUAVABSAFEATgBKAEUAPQA0ACgAGgALAPv/6f/X/8T/sv+g/5D/gf90/2n/X/9Y/1L/Tf9K/0f/Rf9C/0D/Pf86/zf/M/8w/y7/LP8s/yz/L/8z/zr/Q/9N/1r/aP94/4n/mv+r/7v/y//a/+f/8//9/wUADAASABcAGwAfACQAKAAtADIAOAA+AEUATABTAFoAYABlAGkAawBsAGwAagBnAGMAXgBZAFMATgBKAEYARABCAEIAQwBFAEgATABQAFQAWABbAF0AXwBfAF8AXQBbAFcAVABPAEsARwBEAEAAPgA8ADoAOQA4ADgANgA1ADMALwArACYAHwAXAA4ABAD7/+//5P/Z/8//xf+8/7T/rf+o/6P/oP+d/5v/mf+Y/5f/lv+V/5T/kv+R/4//jv+N/4z/jP+N/4//kv+X/5z/ov+q/7L/u//E/83/1v/e/+f/7v/0//r///8CAAUACAALAA0ADwARABMAFgAZABwAHwAjACcAKgAtADAAMgA0ADQANAA0ADMAMQAuACwAKQAnACQAIgAhACAAIAAgACEAIgAkACYAKAApACsALAAtAC4ALgAtACwAKgApACcAJQAjACEAHwAeAB0AHAAbABsAGgAaABkAGAAXABUAEwAQAA0ACQAFAAAA/f/4//P/7//q/+b/4//g/93/2//a/9n/2P/X/9f/1//X/9b/1v/W/9X/1f/U/9T/1P/U/9T/1f/W/9j/2v/c/9//4v/l/+n/7P/v//P/9f/4//v//f/+/wAAAAABAAIAAwADAAQABQAFAAYABwAIAAkACgALAAwADQANAA4ADgAOAA4ADQANAAwACwAKAAkACQAIAAgABwAHAAcABwAHAAcACAAIAAgACAAIAAgACAAIAAgACAAHAAcABgAGAAUABQAEAAQABAADAAMAAwADAAMAAgACAAIAAgABAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAA=');a.preload='auto'}try{a.currentTime=0;a.volume=.30;var p=a.play();if(p&&p.catch)p.catch(function(){})}catch(e){}}
 document.addEventListener('click',function(e){if(typeof e.button==='number'&&e.button!==0)return;var n=performance.now();if(n-__lastTick<60)return;var el=e.target&&e.target.closest?e.target.closest('a,button,summary,[role="button"],input[type="checkbox"],input[type="radio"],select,label'):null;if(!el)return;__lastTick=n;__tick()},{passive:true});
+</script><style id="motion-pass">
+:root {
+  --dm-ink: #111111;
+  --dm-paper: #f6efe0;
+  --dm-yellow: #ffd23f;
+  --dm-blue: #8fc0ff;
+  --dm-pink: #ff8fb1;
+  --dm-green: #8fe0b0;
+  --dm-orange: #ffa45c;
+  --dm-ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+  --dm-ease-overshoot: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dm-ease-slam: cubic-bezier(0.2, 1.35, 0.4, 1);
+  --dm-ease-press: cubic-bezier(0.12, 0.9, 0.25, 1);
+}
+
+/* (1) Hero Headline Word Slam & "shape." Sticker Peel */
+.hero h1.dm-hero-ready {
+  perspective: 700px;
+}
+
+.dm-word-wrap {
+  display: inline-block;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.dm-word {
+  display: inline-block;
+  will-change: transform, opacity;
+  transform-origin: 50% 100%;
+  opacity: 0;
+  transform: translate3d(0, 34px, 0) scale(0.86) rotate(-3deg);
+}
+
+.dm-hero-go .dm-word {
+  animation: dm-word-slam 520ms var(--dm-ease-slam) forwards;
+  animation-delay: calc(var(--dm-word-i, 0) * 68ms + 60ms);
+}
+
+@keyframes dm-word-slam {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0) scale(0.86) rotate(-3deg);
+  }
+  58% {
+    opacity: 1;
+    transform: translate3d(0, -6px, 0) scale(1.05) rotate(1.2deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translate3d(0, 2px, 0) scale(0.985) rotate(-0.4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+}
+
+.hero h1 em.dm-sticker {
+  display: inline-block;
+  position: relative;
+  transform-origin: 14% 50%;
+  will-change: transform, opacity, box-shadow;
+  opacity: 0;
+  transform: translate3d(18px, -22px, 0) rotate(14deg) scale(1.18);
+}
+
+.dm-hero-go em.dm-sticker {
+  animation: dm-sticker-peel 640ms var(--dm-ease-overshoot) forwards;
+  animation-delay: calc(var(--dm-sticker-delay, 320ms));
+}
+
+@keyframes dm-sticker-peel {
+  0% {
+    opacity: 0;
+    transform: translate3d(18px, -22px, 0) rotate(14deg) scale(1.18);
+    box-shadow: 12px 12px 0 var(--dm-ink);
+  }
+  52% {
+    opacity: 1;
+    transform: translate3d(-3px, 3px, 0) rotate(-6.5deg) scale(0.96);
+    box-shadow: 3px 3px 0 var(--dm-ink);
+  }
+  78% {
+    opacity: 1;
+    transform: translate3d(1px, -1px, 0) rotate(-1.2deg) scale(1.02);
+    box-shadow: 7px 7px 0 var(--dm-ink);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(-2.5deg) scale(1);
+    box-shadow: 5px 5px 0 var(--dm-ink);
+  }
+}
+
+.hero .kicker.dm-kicker-ready {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(-10px, 6px, 0) rotate(-2deg);
+  transition:
+    transform 380ms var(--dm-ease-overshoot),
+    opacity 260ms ease-out;
+}
+
+.hero .kicker.dm-kicker-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0deg);
+}
+
+/* (2) Neo-Brutalist Press: Buttons, Inputs, Selects, Summary */
+.toolbar button,
+.add button,
+.add input,
+.add select,
+.day .task button,
+.policies summary,
+.dm-pressable {
+  transition:
+    transform 130ms var(--dm-ease-press),
+    box-shadow 130ms var(--dm-ease-press),
+    background-color 140ms ease;
+  will-change: transform;
+  touch-action: manipulation;
+}
+
+.toolbar button:active,
+.add button:active,
+.toolbar button.dm-pressed,
+.add button.dm-pressed {
+  transform: translate3d(4px, 4px, 0) !important;
+  box-shadow: 2px 2px 0 var(--dm-ink) !important;
+  transition-duration: 55ms;
+}
+
+.add input:active,
+.add select:active,
+.add input.dm-pressed,
+.add select.dm-pressed {
+  transform: translate3d(3px, 3px, 0);
+  box-shadow: 3px 3px 0 var(--dm-ink);
+  transition-duration: 55ms;
+}
+
+.add input:focus-visible,
+.add select:focus-visible {
+  transform: translate3d(-1px, -1px, 0);
+  box-shadow: 7px 7px 0 var(--dm-ink);
+  outline: 2px solid var(--dm-ink);
+  outline-offset: 1px;
+}
+
+.day .task button:active,
+.day .task button.dm-pressed {
+  transform: translate3d(2px, 2px, 0) scale(0.95) !important;
+  transition-duration: 50ms;
+}
+
+.policies summary:active,
+.policies summary.dm-pressed {
+  transform: translate3d(3px, 3px, 0);
+}
+
+/* (3) Day Cards Staggered Sticker-Slap Entrance */
+.days .day {
+  --dm-seed-rot: 0deg;
+  --dm-seed-x: 0px;
+  --dm-stagger: 0ms;
+  position: relative;
+  transform-origin: 50% 18%;
+  backface-visibility: hidden;
+}
+
+.days .day.dm-day-stage {
+  opacity: 0;
+  transform: translate3d(var(--dm-seed-x, 0px), 28px, 0)
+    rotate(var(--dm-seed-rot, -2.5deg)) scale(1.04);
+}
+
+.days .day.dm-day-slap {
+  animation: dm-sticker-slap 480ms var(--dm-ease-slam) forwards;
+  animation-delay: var(--dm-stagger, 0ms);
+}
+
+.days .day.dm-day-settled {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+}
+
+@keyframes dm-sticker-slap {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--dm-seed-x, 0px), 28px, 0)
+      rotate(var(--dm-seed-rot, -2.5deg)) scale(1.05);
+  }
+  56% {
+    opacity: 1;
+    transform: translate3d(0, -3px, 0)
+      rotate(calc(var(--dm-seed-rot, -2deg) * -0.28)) scale(0.985);
+  }
+  82% {
+    opacity: 1;
+    transform: translate3d(0, 1px, 0)
+      rotate(calc(var(--dm-seed-rot, -2deg) * 0.08)) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* (4) New Task Drop-In Bounce + Hard Highlight Flash */
+.day .task {
+  position: relative;
+  transform-origin: 20% 50%;
+}
+
+.day .task.new,
+.day .task.dm-task-drop {
+  animation:
+    dm-task-bounce 420ms var(--dm-ease-overshoot) both,
+    dm-task-flash 560ms steps(2, end) both;
+}
+
+@keyframes dm-task-bounce {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -14px, 0) scale(0.94) rotate(-1.2deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 3px, 0) scale(1.02) rotate(0.4deg);
+  }
+  82% {
+    transform: translate3d(0, -1px, 0) scale(0.995) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes dm-task-flash {
+  0% {
+    background-color: var(--dm-yellow);
+    box-shadow: 4px 4px 0 var(--dm-ink);
+  }
+  65% {
+    background-color: var(--dm-yellow);
+    box-shadow: 4px 4px 0 var(--dm-ink);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+/* (4b) Task Completion: CSS-only left-to-right strike via background-size */
+.day .task label span,
+.day .task span {
+  text-decoration: none !important;
+  background-image: linear-gradient(var(--dm-ink), var(--dm-ink));
+  background-repeat: no-repeat;
+  background-position: 0 54%;
+  background-size: 0% 3px;
+  transition:
+    background-size 260ms var(--dm-ease-snap),
+    opacity 200ms ease;
+}
+
+.day .task.done label span,
+.day .task.done span,
+.day .task input[type="checkbox"]:checked + span {
+  text-decoration: none !important;
+  background-size: 100% 3px;
+  opacity: 0.68;
+}
+
+.day .task.dm-strike-fresh.done label span,
+.day .task.dm-strike-fresh.done span {
+  animation: dm-strike-draw 260ms var(--dm-ease-snap) forwards;
+}
+
+@keyframes dm-strike-draw {
+  0% {
+    background-size: 0% 3px;
+  }
+  100% {
+    background-size: 100% 3px;
+  }
+}
+
+.day .task input[type="checkbox"] {
+  transition: transform 140ms var(--dm-ease-overshoot);
+}
+
+.day .task input[type="checkbox"]:checked {
+  transform: scale(1.08);
+}
+
+/* (4c) Day Card 2px Nudge on Task Completion */
+.days .day.dm-day-nudge {
+  animation: dm-card-nudge 220ms var(--dm-ease-snap) !important;
+}
+
+@keyframes dm-card-nudge {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  38% {
+    transform: translate3d(0, 2px, 0);
+  }
+  75% {
+    transform: translate3d(0, -1px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* (5) Hard-Shadow Depth Shift on Desktop Fine Pointer Hover */
+@media (hover: hover) and (pointer: fine) {
+  .days .day {
+    transition:
+      transform 180ms var(--dm-ease-snap),
+      box-shadow 180ms var(--dm-ease-snap);
+  }
+
+  .days .day.dm-day-settled:hover,
+  .days .day:not(.dm-day-stage):hover {
+    transform: translate3d(-3px, -3px, 0);
+    box-shadow: 9px 9px 0 var(--dm-ink);
+    z-index: 2;
+  }
+
+  .days .day.dm-day-nudge:hover {
+    animation: dm-card-nudge-hover 220ms var(--dm-ease-snap) !important;
+  }
+
+  @keyframes dm-card-nudge-hover {
+    0% {
+      transform: translate3d(-3px, -3px, 0);
+    }
+    40% {
+      transform: translate3d(-1px, -1px, 0);
+    }
+    100% {
+      transform: translate3d(-3px, -3px, 0);
+    }
+  }
+
+  .toolbar button:hover:not(:active):not(.dm-pressed),
+  .add button:hover:not(:active):not(.dm-pressed) {
+    transform: translate3d(-2px, -2px, 0);
+    box-shadow: 8px 8px 0 var(--dm-ink);
+  }
+
+  .nav .brand {
+    display: inline-block;
+    transition: transform 160ms var(--dm-ease-overshoot);
+  }
+
+  .nav .brand:hover {
+    transform: translate3d(-1px, -1px, 0) rotate(-1.5deg);
+  }
+}
+
+/* Subtle Week Dial Step Tick */
+.fictional .week-dial {
+  transition: transform 320ms var(--dm-ease-overshoot);
+  transform-origin: 50% 50%;
+}
+
+/* 390px Mobile Safeguards: Zero Horizontal Overflow or Shadow Clip */
+@media (max-width: 480px) {
+  .hero h1 em.dm-sticker {
+    transform: translate3d(0, 0, 0) rotate(-2deg) scale(1);
+  }
+
+  .toolbar button:active,
+  .add button:active,
+  .toolbar button.dm-pressed,
+  .add button.dm-pressed {
+    transform: translate3d(3px, 3px, 0) !important;
+    box-shadow: 2px 2px 0 var(--dm-ink) !important;
+  }
+}
+
+/* (6) Strictly Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .dm-word,
+  .dm-hero-go .dm-word,
+  .hero h1 em.dm-sticker,
+  .dm-hero-go em.dm-sticker,
+  .hero .kicker.dm-kicker-ready,
+  .hero .kicker.dm-kicker-in,
+  .days .day,
+  .days .day.dm-day-stage,
+  .days .day.dm-day-slap,
+  .days .day.dm-day-settled,
+  .days .day.dm-day-nudge,
+  .day .task,
+  .day .task.new,
+  .day .task.dm-task-drop,
+  .day .task label span,
+  .day .task span,
+  .day .task.done label span,
+  .day .task.done span,
+  .day .task.dm-strike-fresh.done label span,
+  .day .task.dm-strike-fresh.done span,
+  .toolbar button,
+  .add button,
+  .add input,
+  .add select,
+  .day .task button,
+  .policies summary,
+  .fictional .week-dial {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .day .task.done label span,
+  .day .task.done span,
+  .day .task input[type="checkbox"]:checked + span {
+    background-size: 100% 3px !important;
+    opacity: 0.68 !important;
+  }
+}
+
+</style><script>
+(() => {
+  "use strict";
+
+  const reducedMotionQuery = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : null;
+
+  const isReducedMotion = () =>
+    Boolean(reducedMotionQuery && reducedMotionQuery.matches);
+
+  if (isReducedMotion()) {
+    return;
+  }
+
+  /* Deterministic hash & seeded angle/offset generator for stable day slap */
+  const seededUnit = (seed) => {
+    let t = (seed * 2654435761) >>> 0;
+    t ^= t >>> 16;
+    t = Math.imul(t, 2246822507);
+    t ^= t >>> 13;
+    t = Math.imul(t, 3266489909);
+    t ^= t >>> 16;
+    return (t >>> 0) / 4294967295;
+  };
+
+  const getDaySeedMetrics = (index) => {
+    const u1 = seededUnit(index + 11);
+    const u2 = seededUnit((index + 1) * 37);
+    const sign = index % 2 === 0 ? -1 : 1;
+    const angle = (1.6 + u1 * 2.4) * sign;
+    const offsetX = Math.round((u2 - 0.5) * 14);
+    return {
+      rot: `${angle.toFixed(2)}deg`,
+      x: `${offsetX}px`,
+    };
+  };
+
+  /* (1) Hero Headline Word Slam + "shape." Sticker Peel */
+  const initHeroHeadline = () => {
+    const hero = document.querySelector("section.hero");
+    if (!hero) return;
+
+    const h1 = hero.querySelector("h1");
+    const kicker = hero.querySelector(".kicker");
+
+    if (kicker) {
+      kicker.classList.add("dm-kicker-ready");
+    }
+
+    if (!h1 || h1.dataset.dmSplit === "1") return;
+    h1.dataset.dmSplit = "1";
+    h1.classList.add("dm-hero-ready");
+
+    const originalText = (h1.textContent || "").trim();
+    if (originalText && !h1.getAttribute("aria-label")) {
+      h1.setAttribute("aria-label", originalText);
+    }
+
+    let wordCount = 0;
+    const childNodes = Array.from(h1.childNodes);
+    const fragment = document.createDocumentFragment();
+
+    childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const parts = (node.textContent || "").split(/(\s+)/);
+        parts.forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            fragment.appendChild(document.createTextNode(part));
+          } else {
+            const wrap = document.createElement("span");
+            wrap.className = "dm-word-wrap";
+            wrap.setAttribute("aria-hidden", "true");
+
+            const word = document.createElement("span");
+            word.className = "dm-word";
+            word.style.setProperty("--dm-word-i", String(wordCount));
+            word.textContent = part;
+
+            wrap.appendChild(word);
+            fragment.appendChild(wrap);
+            wordCount += 1;
+          }
+        });
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        const el = node;
+        if (el.tagName.toLowerCase() === "em") {
+          el.classList.add("dm-sticker");
+          el.style.setProperty(
+            "--dm-sticker-delay",
+            `${wordCount * 68 + 110}ms`
+          );
+          wordCount += 1;
+        }
+        fragment.appendChild(el);
+      }
+    });
+
+    h1.textContent = "";
+    h1.appendChild(fragment);
+
+    const triggerHero = () => {
+      if (kicker) kicker.classList.add("dm-kicker-in");
+      h1.classList.add("dm-hero-go");
+    };
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(triggerHero);
+    });
+  };
+
+  /* (2) Neo-Brutalist Press Delegation */
+  const initPressDelegation = () => {
+    const pressSelector =
+      ".toolbar button, .add button, .add input, .add select, .day .task button, .policies summary";
+
+    const clearPressed = () => {
+      const activeNodes = document.querySelectorAll(".dm-pressed");
+      activeNodes.forEach((node) => node.classList.remove("dm-pressed"));
+    };
+
+    document.addEventListener(
+      "pointerdown",
+      (e) => {
+        if (isReducedMotion()) return;
+        if (e.button !== undefined && e.button !== 0) return;
+        const target =
+          e.target instanceof Element ? e.target.closest(pressSelector) : null;
+        if (target) {
+          target.classList.add("dm-pressed");
+        }
+      },
+      { passive: true }
+    );
+
+    ["pointerup", "pointercancel", " lostpointercapture", "blur"].forEach(
+      (evtName) => {
+        window.addEventListener(evtName.trim(), clearPressed, { passive: true });
+      }
+    );
+
+    document.addEventListener(
+      "pointerout",
+      (e) => {
+        const target =
+          e.target instanceof Element ? e.target.closest(".dm-pressed") : null;
+        if (
+          target &&
+          (!e.relatedTarget || !target.contains(e.relatedTarget))
+        ) {
+          target.classList.remove("dm-pressed");
+        }
+      },
+      { passive: true }
+    );
+
+    document.addEventListener("keydown", (e) => {
+      if (isReducedMotion()) return;
+      if (e.key !== " " && e.key !== "Enter") return;
+      const target =
+        e.target instanceof Element
+          ? e.target.closest(
+              ".toolbar button, .add button, .day .task button, .policies summary"
+            )
+          : null;
+      if (target) {
+        target.classList.add("dm-pressed");
+      }
+    });
+
+    document.addEventListener("keyup", (e) => {
+      if (e.key !== " " && e.key !== "Enter") return;
+      clearPressed();
+    });
+  };
+
+  /* (3) & (4) Day Cards Sticker-Slap, Task Bounce/Flash & Strike Nudge */
+  const initPlannerMotion = () => {
+    const daysContainer = document.querySelector(".days");
+    if (!daysContainer) return;
+
+    const revealedDayIndices = new Set();
+    let pendingNudgeDayIndex = -1;
+    let pendingNudgeTimestamp = 0;
+    let pendingStrikeTaskSig = "";
+    let dialAngle = 0;
+
+    const rotateWeekDial = (deltaDeg) => {
+      const dial = document.querySelector(".fictional .week-dial");
+      if (!dial || isReducedMotion()) return;
+      dialAngle += deltaDeg;
+      dial.style.transform = `rotate(${dialAngle}deg)`;
+    };
+
+    const getDayIndex = (dayEl) => {
+      if (!dayEl || !daysContainer) return -1;
+      const allDays = Array.from(daysContainer.querySelectorAll(".day"));
+      return allDays.indexOf(dayEl);
+    };
+
+    const getTaskSignature = (taskEl, dayIndex) => {
+      if (!taskEl) return "";
+      const span = taskEl.querySelector("span");
+      const labelText = span ? (span.textContent || "").trim() : "";
+      const tasksInDay = Array.from(
+        taskEl.parentElement ? taskEl.parentElement.querySelectorAll(".task") : []
+      );
+      const taskIdx = tasksInDay.indexOf(taskEl);
+      return `${dayIndex}::${taskIdx}::${labelText}`;
+    };
+
+    const triggerDayNudge = (dayEl) => {
+      if (!dayEl || isReducedMotion()) return;
+      dayEl.classList.remove("dm-day-nudge");
+      void dayEl.offsetWidth;
+      dayEl.classList.add("dm-day-nudge");
+      dayEl.addEventListener(
+        "animationend",
+        (evt) => {
+          if (evt.animationName === "dm-card-nudge" || evt.animationName === "dm-card-nudge-hover") {
+            dayEl.classList.remove("dm-day-nudge");
+          }
+        },
+        { once: true }
+      );
+    };
+
+    const dayObserver =
+      "IntersectionObserver" in window
+        ? new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const dayEl = entry.target;
+                const idx = Number(dayEl.dataset.dmDayIdx || 0);
+                dayObserver.unobserve(dayEl);
+
+                if (revealedDayIndices.has(idx)) {
+                  dayEl.classList.remove("dm-day-stage");
+                  dayEl.classList.add("dm-day-settled");
+                  return;
+                }
+
+                revealedDayIndices.add(idx);
+                dayEl.style.setProperty("--dm-stagger", `${(idx % 7) * 55}ms`);
+                dayEl.classList.add("dm-day-slap");
+
+                dayEl.addEventListener(
+                  "animationend",
+                  (evt) => {
+                    if (evt.animationName === "dm-sticker-slap") {
+                      dayEl.classList.remove("dm-day-stage", "dm-day-slap");
+                      dayEl.classList.add("dm-day-settled");
+                    }
+                  },
+                  { once: true }
+                );
+              });
+            },
+            {
+              root: null,
+              rootMargin: "0px 0px -6% 0px",
+              threshold: 0.12,
+            }
+          )
+        : null;
+
+    const decorateDaysAndTasks = () => {
+      if (isReducedMotion()) return;
+
+      const dayCards = Array.from(daysContainer.querySelectorAll(".day"));
+      const now = performance.now();
+
+      dayCards.forEach((dayEl, idx) => {
+        dayEl.dataset.dmDayIdx = String(idx);
+        const seed = getDaySeedMetrics(idx);
+        dayEl.style.setProperty("--dm-seed-rot", seed.rot);
+        dayEl.style.setProperty("--dm-seed-x", seed.x);
+
+        if (revealedDayIndices.has(idx)) {
+          dayEl.classList.remove("dm-day-stage", "dm-day-slap");
+          dayEl.classList.add("dm-day-settled");
+        } else if (!dayEl.classList.contains("dm-day-slap")) {
+          dayEl.classList.add("dm-day-stage");
+          if (dayObserver) {
+            dayObserver.observe(dayEl);
+          } else {
+            revealedDayIndices.add(idx);
+            dayEl.classList.remove("dm-day-stage");
+            dayEl.classList.add("dm-day-settled");
+          }
+        }
+
+        if (pendingNudgeDayIndex === idx && now - pendingNudgeTimestamp < 450) {
+          pendingNudgeDayIndex = -1;
+          triggerDayNudge(dayEl);
+        }
+
+        const tasks = Array.from(dayEl.querySelectorAll(".task"));
+        tasks.forEach((taskEl) => {
+          if (taskEl.classList.contains("new") && !taskEl.dataset.dmDropped) {
+            taskEl.dataset.dmDropped = "1";
+            taskEl.classList.add("dm-task-drop");
+          }
+
+          if (pendingStrikeTaskSig) {
+            const sig = getTaskSignature(taskEl, idx);
+            if (sig === pendingStrikeTaskSig && taskEl.classList.contains("done")) {
+              taskEl.classList.add("dm-strike-fresh");
+              pendingStrikeTaskSig = "";
+            }
+          }
+        });
+      });
+    };
+
+    decorateDaysAndTasks();
+
+    /* Delegated Checkbox Completion Detection (survives synchronous innerHTML re-render) */
+    daysContainer.addEventListener(
+      "change",
+      (e) => {
+        if (isReducedMotion()) return;
+        const input =
+          e.target instanceof HTMLInputElement && e.target.type === "checkbox"
+            ? e.target
+            : null;
+        if (!input) return;
+
+        const dayEl = input.closest(".day");
+        const taskEl = input.closest(".task");
+        const dayIdx = getDayIndex(dayEl);
+
+        if (input.checked) {
+          if (dayIdx !== -1) {
+            pendingNudgeDayIndex = dayIdx;
+            pendingNudgeTimestamp = performance.now();
+          }
+          if (taskEl && dayIdx !== -1) {
+            pendingStrikeTaskSig = getTaskSignature(taskEl, dayIdx);
+            taskEl.classList.add("dm-strike-fresh");
+          }
+          if (dayEl && dayEl.isConnected) {
+            triggerDayNudge(dayEl);
+          }
+          rotateWeekDial(15);
+        } else {
+          if (taskEl) {
+            taskEl.classList.remove("dm-strike-fresh");
+          }
+          rotateWeekDial(-15);
+        }
+      },
+      true
+    );
+
+    /* Observe .days for innerHTML replacements or class mutations */
+    const observer = new MutationObserver((mutations) => {
+      if (isReducedMotion()) return;
+      let shouldDecorate = false;
+
+      for (let i = 0; i < mutations.length; i += 1) {
+        const m = mutations[i];
+        if (m.type === "childList" && (m.addedNodes.length > 0 || m.removedNodes.length > 0)) {
+          shouldDecorate = true;
+          break;
+        }
+        if (m.type === "attributes" && m.attributeName === "class") {
+          const target = m.target;
+          if (
+            target instanceof Element &&
+            (target.classList.contains("new") || target.classList.contains("enter"))
+          ) {
+            shouldDecorate = true;
+            break;
+          }
+        }
+      }
+
+      if (shouldDecorate) {
+        decorateDaysAndTasks();
+      }
+    });
+
+    observer.observe(daysContainer, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  };
+
+  const boot = () => {
+    if (isReducedMotion()) return;
+    initHeroHeadline();
+    initPressDelegation();
+    initPlannerMotion();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
+})();
+
 </script></body></html>
 
