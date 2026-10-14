@@ -993,6 +993,7 @@ document.addEventListener('click',function(e){if(typeof e.button==='number'&&e.b
     );
 
     /* Observe .days for innerHTML replacements or class mutations */
+    let decoratePending = false;
     const observer = new MutationObserver((mutations) => {
       if (isReducedMotion()) return;
       let shouldDecorate = false;
@@ -1015,8 +1016,14 @@ document.addEventListener('click',function(e){if(typeof e.button==='number'&&e.b
         }
       }
 
-      if (shouldDecorate) {
-        decorateDaysAndTasks();
+      if (shouldDecorate && !decoratePending) {
+        decoratePending = true;
+        requestAnimationFrame(() => {
+          decoratePending = false;
+          observer.disconnect();
+          decorateDaysAndTasks();
+          observer.observe(daysContainer, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
+        });
       }
     });
 
