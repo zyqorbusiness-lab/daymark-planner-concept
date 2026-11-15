@@ -1,1 +1,1 @@
-Daymark is a fictional weekly planner interaction concept by ZYQOR Studio. Tasks stay in local browser storage.
+Daymark is a weekly planner by ZYQOR Studio. Tasks are saved in your browser local storage on your device. There is no account or cloud sync.
